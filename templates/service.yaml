@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "exporter-nginx-ingress.fullname" . }}
+  labels:
+    app: {{ template "exporter-nginx-ingress.name" . }}
+    component: {{ template "exporter-nginx-ingress.name" . }}
+    chart: {{ template "exporter-nginx-ingress.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  namespace: kube-system
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+  - port: 443
+    targetPort: 10254
+    protocol: TCP
+    name: https-metrics
+  selector:
+    name: {{ template "exporter-nginx-ingress.name" . }}
+    release: {{ .Release.Name }}

@@ -1,0 +1,26 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    component: {{ template "exporter-nginx-ingress.name" . }}
+    prometheus: {{ template "exporter-nginx-ingress.fullname" . }}
+    release: {{ .Release.Name }}
+  name: {{ template "exporter-nginx-ingress.fullname" . }}
+  namespace: {{ .Values.namespaceMonitoring }}
+spec:
+  endpoints:
+  - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    interval: 15s
+    port: https-metrics
+    scheme: http
+    tlsConfig:
+      caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+      insecureSkipVerify: {{ .Values.insecureSkipVerify }}
+  jobLabel: {{ template "exporter-nginx-ingress.fullname" . }}
+  namespaceSelector:
+    matchNames:
+    - kube-system
+  selector:
+    matchLabels:
+      app: {{ template "exporter-nginx-ingress.name" . }}
+      component: {{ template "exporter-nginx-ingress.name" . }}
