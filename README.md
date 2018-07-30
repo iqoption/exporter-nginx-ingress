@@ -27,7 +27,7 @@ and need restart nginx-ingress-lb on each node.
 ## Installation
 
 ```bash
-$ helm repo add iqoption https://iqoption.github.com/exporter-nginx-ingress
+$ helm repo add iqoption https://iqoption.github.io/exporter-nginx-ingress
 $ helm install --upgrade iqoption/exporter-nginx-ingress --tiller-namespace kube-system
 ```
 [More information](https://github.com/coreos/prometheus-operator/blob/master/Documentation/user-guides/running-exporters.md)
