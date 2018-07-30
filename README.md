@@ -51,4 +51,12 @@ $ helm repo add iqoption https://iqoption.github.io/exporter-nginx-ingress
 $ helm upgrade --install exportner-nginx-ingress iqoption/exporter-nginx-ingress --tiller-namespace kube-system
 ```
 
+*Support variables:*
+```
+namespaceMonitoring: monitoring
+insecureSkipVerify: true
+service.type: ClusterIP
+service.port: 80
+```
+
 [More information](https://github.com/coreos/prometheus-operator/blob/master/Documentation/user-guides/running-exporters.md)
