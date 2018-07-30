@@ -1,0 +1,12 @@
+apiVersion: v1
+description: Kubernetes NginxIngress Exporter for Prometheus
+keywords:
+- prometheus
+- kubernetes
+- prometheus-operator
+- nginx-ingress
+- metrics
+name: exporter-nginx-ingress
+sources:
+- https://github.com/iqoption/exporter-nginx-ingress
+version: 0.1.0
