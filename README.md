@@ -1,7 +1,7 @@
 # Kubernetes NginxIngress Exporter for Prometheus
-## Installation
+## Before installation
 
-First you need enable metrics:
+First you need enable metrics:   
 In nginx-ingress daemonset need added annotation:
 
 ```bash
@@ -22,9 +22,12 @@ spec:
 +        prometheus.io/port: "10254"
 +        prometheus.io/scrape: "true"
 ```
-and restart nginx-ingress-lb on each node.
+and need restart nginx-ingress-lb on each node.
+
+## Installation
 
 ```bash
-helm install --upgrade exporter-nginx-ingress . --tiller-namespace kube-system
+$ helm repo add iqoption https://iqoption.github.com/exporter-nginx-ingress
+$ helm install --upgrade iqoption/exporter-nginx-ingress --tiller-namespace kube-system
 ```
 [More information](https://github.com/coreos/prometheus-operator/blob/master/Documentation/user-guides/running-exporters.md)
