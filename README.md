@@ -48,10 +48,10 @@ metadata:
 
 ```bash
 $ helm repo add iqoption https://iqoption.github.io/exporter-nginx-ingress
-$ helm upgrade --install exportner-nginx-ingress iqoption/exporter-nginx-ingress --tiller-namespace kube-system
+$ helm upgrade --install exporter-nginx-ingress iqoption/exporter-nginx-ingress --tiller-namespace kube-system
 ```
 
-*Support variables:*
+**Support variables:**
 ```
 namespaceMonitoring: monitoring
 insecureSkipVerify: true
